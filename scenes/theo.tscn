@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq8u4rq3pkh7t"]
+[gd_scene load_steps=3 format=3 uid="uid://t118663r8xm3"]
 
-[ext_resource type="PackedScene" uid="uid://cugddj6o2ans5" path="res://scenes/map.tscn" id="1_7i5u7"]
+[ext_resource type="PackedScene" uid="uid://ergkkduqtopb" path="res://scenes/map.tscn" id="1_7i5u7"]
 [ext_resource type="PackedScene" uid="uid://cojxcanv1a0nl" path="res://actors/player/player.tscn" id="2_e8te2"]
 
 [node name="Theo" type="Node2D"]
