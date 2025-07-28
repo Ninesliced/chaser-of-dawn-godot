@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Mineral" load_steps=4 format=3 uid="uid://b0g4je4g3v4xp"]
 
-[ext_resource type="Script" uid="uid://c7f2rs4y56y4x" path="res://resources/mineral.gd" id="1_83xrw"]
+[ext_resource type="Script" uid="uid://oqcwmc1rxljm" path="res://resources/mineral.gd" id="1_83xrw"]
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="2_7vces"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q1ocs"]
@@ -18,3 +18,4 @@ levels = Dictionary[int, int]({
 2: 2600,
 3: 2300
 })
+metadata/_custom_type_script = "uid://oqcwmc1rxljm"
