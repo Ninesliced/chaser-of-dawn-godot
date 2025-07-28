@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d05vbqxcb8u7k"]
 
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="1_8l7qj"]
-[ext_resource type="Script" uid="uid://03nyh3201mcc" path="res://scenes/button.gd" id="2_4e0yl"]
+[ext_resource type="Script" path="res://scenes/button.gd" id="2_4e0yl"]
 
 [sub_resource type="FontVariation" id="FontVariation_l6cm7"]
 spacing_top = -100

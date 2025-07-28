@@ -13,11 +13,5 @@ void vertex()
 
 void fragment()
 {
-	//float mask = texture(TEXTURE, UV).a;
-	vec4 color = texture(world_texture, world_space / world_texture_size);
-
-	//COLOR.rgb = color.rgb;
-	//COLOR.rgb = vec3(UV.x);
-	COLOR = color;
-	//color.a = color.a * mask;
+	COLOR = texture(world_texture, world_space / world_texture_size);
 }

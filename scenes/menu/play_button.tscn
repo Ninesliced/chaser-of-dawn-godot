@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://brtbqbabw2bja"]
+[gd_scene load_steps=8 format=3 uid="uid://brtbqbabw2bja"]
 
 [ext_resource type="PackedScene" uid="uid://d05vbqxcb8u7k" path="res://scenes/menu/menu_button.tscn" id="1_hioca"]
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="2_hrx6l"]
 [ext_resource type="Script" uid="uid://kove8w3x4jte" path="res://scenes/menu/play_button.gd" id="2_kj8co"]
-[ext_resource type="PackedScene" uid="uid://c3aqq383c0le3" path="res://main.tscn" id="3_61myk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hrx6l"]
 atlas = ExtResource("2_hrx6l")
@@ -31,6 +30,5 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_82and")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_hrx6l")
 theme_override_styles/normal = SubResource("StyleBoxTexture_hrx6l")
 script = ExtResource("2_kj8co")
-scene_to_load = ExtResource("3_61myk")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

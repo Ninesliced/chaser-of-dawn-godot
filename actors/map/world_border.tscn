@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://66vif0kl8pba"]
+[gd_scene load_steps=8 format=4 uid="uid://66vif0kl8pba"]
 
 [ext_resource type="TileSet" uid="uid://digyqa57r21tu" path="res://resources/spritesheet.tres" id="1_mgio6"]
 [ext_resource type="Script" uid="uid://kak7tqijqmnj" path="res://actors/map/world_border.gd" id="1_pb4ya"]
@@ -9,6 +9,12 @@
 shader = ExtResource("3_nvn5g")
 shader_parameter/world_texture = ExtResource("3_tb3ke")
 shader_parameter/world_texture_size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tb3ke"]
+size = Vector2(32, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvfc2"]
+size = Vector2(32, 128)
 
 [node name="WorldBorder" type="Node2D" node_paths=PackedStringArray("visible_border")]
 script = ExtResource("1_pb4ya")
@@ -26,3 +32,16 @@ tile_set = ExtResource("1_mgio6")
 position = Vector2(64, 64)
 tile_map_data = PackedByteArray("AAAHAPj/AAAKAAkAAAAHAPn/AAAKAAkAAAAHAPr/AAAKAAkAAAAHAPv/AAAKAAkAAAAHAPz/AAAKAAkAAAAHAP3/AAAKAAkAAAAHAP7/AAAKAAkAAAAHAP//AAAKAAkAAAAHAAAAAAAKAAkAAAAHAAEAAAAKAAkAAAAHAAIAAAAKAAkAAAAHAAMAAAAKAAkAAAAHAAQAAAAKAAkAAAAHAAUAAAAKAAkAAAAHAAYAAAAKAAkAAAAHAAcAAAAKAAkAAAAIAPj/AAALAAkAAAAJAPj/AAALAAkAAAAKAPj/AAALAAkAAAAKAPn/AAALAAkAAAAJAPn/AAALAAkAAAAIAPn/AAALAAkAAAAIAPr/AAALAAkAAAAJAPr/AAALAAkAAAAKAPr/AAALAAkAAAAKAPv/AAALAAkAAAAJAPv/AAALAAkAAAAIAPv/AAALAAkAAAAIAPz/AAALAAkAAAAJAPz/AAALAAkAAAAKAPz/AAALAAkAAAAKAP3/AAALAAkAAAAJAP3/AAALAAkAAAAJAP7/AAALAAkAAAAKAP7/AAALAAkAAAAIAP3/AAALAAkAAAAIAP7/AAALAAkAAAAIAP//AAALAAkAAAAJAP//AAALAAkAAAAJAAAAAAALAAkAAAAKAP//AAALAAkAAAAKAAAAAAALAAkAAAAKAAEAAAALAAkAAAAKAAIAAAALAAkAAAAJAAEAAAALAAkAAAAJAAIAAAALAAkAAAAIAAAAAAALAAkAAAAIAAEAAAALAAkAAAAIAAIAAAALAAkAAAAIAAMAAAALAAkAAAAIAAQAAAALAAkAAAAIAAUAAAALAAkAAAAJAAQAAAALAAkAAAAJAAMAAAALAAkAAAAJAAUAAAALAAkAAAAKAAQAAAALAAkAAAAKAAMAAAALAAkAAAAKAAUAAAALAAkAAAAKAAYAAAALAAkAAAAKAAcAAAALAAkAAAAJAAcAAAALAAkAAAAIAAcAAAALAAkAAAAIAAYAAAALAAkAAAAJAAYAAAALAAkAAAD4//j/AAAHAAkAAAD4//n/AAAHAAkAAAD4//r/AAAHAAkAAAD4//v/AAAHAAkAAAD3//v/AAAGAAkAAAD3//z/AAAGAAkAAAD3//3/AAAGAAkAAAD3//7/AAAGAAkAAAD3////AAAGAAkAAAD3/wAAAAAGAAkAAAD3/wEAAAAGAAkAAAD3/wIAAAAGAAkAAAD3/wMAAAAGAAkAAAD3/wQAAAAGAAkAAAD4/wMAAAAHAAkAAAD4/wIAAAAHAAkAAAD4/wEAAAAHAAkAAAD4/wAAAAAHAAkAAAD4////AAAHAAkAAAD4//7/AAAHAAkAAAD4//3/AAAHAAkAAAD4//z/AAAHAAkAAAD3//j/AAAGAAkAAAD3//n/AAAGAAkAAAD3//r/AAAGAAkAAAD2//r/AAAGAAkAAAD2//n/AAAGAAkAAAD2//j/AAAGAAkAAAD2//v/AAAGAAkAAAD2//z/AAAGAAkAAAD2//3/AAAGAAkAAAD2//7/AAAGAAkAAAD2/wAAAAAGAAkAAAD2/wEAAAAGAAkAAAD2////AAAGAAkAAAD1//v/AAAGAAkAAAD1//r/AAAGAAkAAAD1//n/AAAGAAkAAAD1//j/AAAGAAkAAAD1//z/AAAGAAkAAAD1//3/AAAGAAkAAAD1//7/AAAGAAkAAAD1////AAAGAAkAAAD1/wAAAAAGAAkAAAD1/wEAAAAGAAkAAAD1/wIAAAAGAAkAAAD2/wIAAAAGAAkAAAD2/wQAAAAGAAkAAAD2/wUAAAAGAAkAAAD2/wYAAAAGAAkAAAD2/wcAAAAGAAkAAAD3/wcAAAAGAAkAAAD3/wYAAAAGAAkAAAD3/wUAAAAGAAkAAAD4/wQAAAAHAAkAAAD4/wUAAAAHAAkAAAD4/wYAAAAHAAkAAAD4/wcAAAAHAAkAAAD2/wMAAAAGAAkAAAD1/wQAAAAGAAkAAAD1/wUAAAAGAAkAAAD1/wYAAAAGAAkAAAD1/wcAAAAGAAkAAAD1/wMAAAAGAAkAAAA=")
 tile_set = ExtResource("1_mgio6")
+
+[node name="ConcreteBorderCollisions" type="Area2D" parent="."]
+
+[node name="DaylightCollisionShape" type="CollisionShape2D" parent="ConcreteBorderCollisions"]
+position = Vector2(-8, 64)
+shape = SubResource("RectangleShape2D_tb3ke")
+
+[node name="NighttimeCollisionShape" type="CollisionShape2D" parent="ConcreteBorderCollisions"]
+position = Vector2(136, 64)
+shape = SubResource("RectangleShape2D_cvfc2")
+
+[connection signal="body_entered" from="ConcreteBorderCollisions" to="." method="_on_concrete_border_collisions_body_entered"]
+[connection signal="body_exited" from="ConcreteBorderCollisions" to="." method="_on_concrete_border_collisions_body_exited"]
