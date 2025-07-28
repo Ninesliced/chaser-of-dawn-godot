@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Mineral" load_steps=2 format=3 uid="uid://cwfb5gn60ktku"]
+
+[ext_resource type="Script" uid="uid://oqcwmc1rxljm" path="res://resources/mineral.gd" id="1_f13tu"]
+
+[resource]
+script = ExtResource("1_f13tu")
+name = "Coal"
+tool = 0
+levels = Dictionary[int, int]({
+0: -1,
+1: 1600,
+2: 1250,
+3: 800
+})
+metadata/_custom_type_script = "uid://oqcwmc1rxljm"

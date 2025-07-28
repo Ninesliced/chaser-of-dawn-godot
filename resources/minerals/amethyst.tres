@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Mineral" load_steps=2 format=3 uid="uid://ce6jl6k1c68xd"]
+
+[ext_resource type="Script" uid="uid://oqcwmc1rxljm" path="res://resources/mineral.gd" id="1_407jo"]
+
+[resource]
+script = ExtResource("1_407jo")
+name = "Amethyst"
+tool = 0
+levels = Dictionary[int, int]({
+0: -1,
+1: -1,
+2: -1,
+3: 3650
+})
+metadata/_custom_type_script = "uid://oqcwmc1rxljm"
