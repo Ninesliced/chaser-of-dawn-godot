@@ -5,7 +5,7 @@ class_name UpgradeUI
 @export var current_tool: Mineral.ToolType = Mineral.ToolType.PICKAXE:
 	set(value):
 		current_tool = value
-		set_current_texture()
+		# set_current_texture()
 
 @onready var current: TextureRect = %Current
 @onready var new: TextureRect = %New
