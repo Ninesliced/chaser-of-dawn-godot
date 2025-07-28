@@ -8,5 +8,4 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	print(speed / 1000. * delta)
 	position.x += delta
