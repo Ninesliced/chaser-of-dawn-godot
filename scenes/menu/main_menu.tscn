@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://b2cvu5i75764i"]
+
+[ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="1_3rkf3"]
+[ext_resource type="Script" uid="uid://djkv4goe2eu5k" path="res://scenes/menu/main_menu.gd" id="1_kiqgm"]
+[ext_resource type="PackedScene" uid="uid://brtbqbabw2bja" path="res://scenes/menu/play_button.tscn" id="2_3rkf3"]
+[ext_resource type="PackedScene" uid="uid://d0f7m3nj4ntxe" path="res://scenes/menu/info_button.tscn" id="3_247la"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekxnf"]
+atlas = ExtResource("1_3rkf3")
+region = Rect2(48, 80, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rkf3"]
+atlas = ExtResource("1_3rkf3")
+region = Rect2(24, 73, 19, 7)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_247la"]
+texture = SubResource("AtlasTexture_3rkf3")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6cm7"]
+atlas = ExtResource("1_3rkf3")
+region = Rect2(0, 73, 19, 7)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3rkf3"]
+texture = SubResource("AtlasTexture_l6cm7")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kiqgm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_right = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="Screen" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ekxnf")
+stretch_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="Play" parent="VBoxContainer" instance=ExtResource("2_3rkf3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(19, 7)
+layout_mode = 2
+
+[node name="InfoButton" parent="VBoxContainer" instance=ExtResource("3_247la")]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_247la")
+theme_override_styles/hover = SubResource("StyleBoxTexture_247la")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3rkf3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3rkf3")
