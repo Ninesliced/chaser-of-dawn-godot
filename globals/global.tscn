@@ -1,0 +1,73 @@
+[gd_scene load_steps=18 format=3 uid="uid://cvg8gc8a373yp"]
+
+[ext_resource type="Script" uid="uid://b888wymn6phtl" path="res://globals/global.gd" id="1_mqaw6"]
+[ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="2_lyb5f"]
+[ext_resource type="Script" uid="uid://bicj8flj0d734" path="res://resources/inventory.gd" id="2_n6jmf"]
+
+[sub_resource type="Resource" id="Resource_ltp0y"]
+script = ExtResource("2_n6jmf")
+pickaxe = 0
+axe = 0
+ship = 0
+metadata/_custom_type_script = "uid://bicj8flj0d734"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyb5f"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(40, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6jmf"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(48, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltp0y"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(56, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqaw6"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(64, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clrof"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(72, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly8ta"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(40, 32, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njoy1"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(48, 32, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gopdk"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(56, 32, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgijr"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(64, 32, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fr53"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(40, 40, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppjj2"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(48, 40, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hccej"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(56, 40, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxryh"]
+atlas = ExtResource("2_lyb5f")
+region = Rect2(64, 40, 8, 8)
+
+[node name="Global" type="Node"]
+script = ExtResource("1_mqaw6")
+current_inventory = SubResource("Resource_ltp0y")
+items = Dictionary[int, Array]({
+0: [SubResource("AtlasTexture_lyb5f"), SubResource("AtlasTexture_n6jmf"), SubResource("AtlasTexture_ltp0y"), SubResource("AtlasTexture_mqaw6"), SubResource("AtlasTexture_clrof")],
+1: [SubResource("AtlasTexture_ly8ta"), SubResource("AtlasTexture_njoy1"), SubResource("AtlasTexture_gopdk"), SubResource("AtlasTexture_xgijr")],
+2: [SubResource("AtlasTexture_2fr53"), SubResource("AtlasTexture_ppjj2"), SubResource("AtlasTexture_hccej"), SubResource("AtlasTexture_cxryh")]
+})

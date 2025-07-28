@@ -3,6 +3,7 @@ extends Resource
 class_name Mineral
 
 enum ToolType {
+	SHIP,
 	PICKAXE,
 	AXE
 }
