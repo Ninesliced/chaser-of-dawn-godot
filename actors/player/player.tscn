@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c5h82gwvgfxbb" path="res://actors/player/player.gd" id="1_ilk7j"]
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="1_nvxhs"]
 [ext_resource type="Script" uid="uid://btjdcrja4ylpl" path="res://actors/player/components/movement_component.gd" id="3_ax26v"]
-[ext_resource type="Script" uid="uid://c617wnfbhuqsq" path="res://actors/player/components/keep_in_map_component.gd" id="4_lsqbn"]
+[ext_resource type="Script" path="res://actors/player/components/keep_in_map_component.gd" id="4_lsqbn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufug3"]
 size = Vector2(8, 8)

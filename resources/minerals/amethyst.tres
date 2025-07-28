@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Mineral" load_steps=4 format=3 uid="uid://ce6jl6k1c68xd"]
 
-[ext_resource type="Script" uid="uid://oqcwmc1rxljm" path="res://resources/mineral.gd" id="1_407jo"]
+[ext_resource type="Script" path="res://resources/mineral.gd" id="1_407jo"]
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="2_58t1v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pehrx"]
