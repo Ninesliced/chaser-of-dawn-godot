@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Mineral" load_steps=2 format=3 uid="uid://b3pmndtyvl5r8"]
+
+[ext_resource type="Script" uid="uid://oqcwmc1rxljm" path="res://resources/mineral.gd" id="1_6ngx3"]
+
+[resource]
+script = ExtResource("1_6ngx3")
+name = "Wood"
+tool = 1
+levels = Dictionary[int, int]({
+0: 2000,
+1: 1500,
+2: 1160,
+3: 650
+})
+metadata/_custom_type_script = "uid://oqcwmc1rxljm"
