@@ -12,5 +12,3 @@ func _process(delta: float) -> void:
 	if visible_border.position.x > tile_width:
 		visible_border.position.x -= tile_width
 		position.x += tile_width
-
-	position.x = fmod(position.x, tile_width * 2.)
