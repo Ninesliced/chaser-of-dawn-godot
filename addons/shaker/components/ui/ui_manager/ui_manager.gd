@@ -7,7 +7,18 @@ var _stack : Array = []
 var _focus_stack : Array = []
 var _current_ui : Node = null
 
+var is_consummed : bool = false
+
+func consume_input() -> void:
+	is_consummed = true
+
+func is_ui_open() -> bool:
+	return _current_ui != null
+
 func _input(event: InputEvent) -> void:
+	if is_consummed:
+		is_consummed = false
+		return
 	if event.is_action_pressed("ui_cancel"):
 		close_ui()
 		return
@@ -47,6 +58,9 @@ func close_ui() -> void:
 
 		var current_focus = _focus_stack.back()
 		current_focus.grab_focus()
+	else:
+		_focus_stack.clear()
+		_stack.clear()
 
 func close_all() -> void:
 	var minimum_size = 1 if first_unclosable else 0

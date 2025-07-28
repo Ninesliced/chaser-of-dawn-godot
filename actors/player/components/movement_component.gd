@@ -11,5 +11,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var vector : Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if UIManager.is_ui_open():
+		vector = Vector2.ZERO
 	player.velocity = vector.normalized() * player.speed
 	player.move_and_slide()

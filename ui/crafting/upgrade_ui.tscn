@@ -1,9 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://uyvdblta1iik"]
+[gd_scene load_steps=8 format=3 uid="uid://uyvdblta1iik"]
 
 [ext_resource type="Script" uid="uid://cn77ujo8bcd7m" path="res://ui/crafting/upgrade_ui.gd" id="1_68xul"]
 [ext_resource type="Material" uid="uid://ckh7tquhip5ek" path="res://resources/materials/black_to_blue.tres" id="2_225pv"]
 [ext_resource type="Texture2D" uid="uid://cx0yg5abkkq5o" path="res://assets/spritesheet/rect.png" id="3_quno0"]
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="4_g1kir"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vvgi"]
+texture = ExtResource("3_quno0")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+modulate_color = Color(1, 0.945098, 0.909804, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bff3v"]
 texture = ExtResource("3_quno0")
@@ -11,7 +19,7 @@ texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
-modulate_color = Color(1, 0.945098, 0.909804, 1)
+modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7646"]
 atlas = ExtResource("4_g1kir")
@@ -48,6 +56,9 @@ custom_minimum_size = Vector2(8, 8)
 layout_mode = 0
 offset_right = 10.0
 offset_bottom = 10.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_0vvgi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bff3v")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bff3v")
 theme_override_styles/normal = SubResource("StyleBoxTexture_bff3v")
 
 [node name="Current" type="TextureRect" parent="CraftingButton"]
