@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="1_nvxhs"]
 [ext_resource type="Script" uid="uid://btjdcrja4ylpl" path="res://actors/player/components/movement_component.gd" id="3_ax26v"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufug3"]
+size = Vector2(8, 8)
+
 [sub_resource type="Shader" id="Shader_ax26v"]
 code = "shader_type canvas_item;
 
@@ -111,19 +114,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufug3"]
-size = Vector2(8, 8)
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ilk7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ufug3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_lsqbn")
 sprite_frames = SubResource("SpriteFrames_ufug3")
 animation = &"right"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ufug3")
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("3_ax26v")
