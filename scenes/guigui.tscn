@@ -5,4 +5,5 @@
 [node name="Guigui" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_gfv14")]
-position = Vector2(-4, -4)
+position = Vector2(26, 25)
+speed = 200.0
