@@ -1,10 +1,16 @@
-[gd_resource type="Resource" script_class="Mineral" load_steps=2 format=3 uid="uid://b3pmndtyvl5r8"]
+[gd_resource type="Resource" script_class="Mineral" load_steps=4 format=3 uid="uid://b3pmndtyvl5r8"]
 
-[ext_resource type="Script" uid="uid://oqcwmc1rxljm" path="res://resources/mineral.gd" id="1_6ngx3"]
+[ext_resource type="Script" uid="uid://c7f2rs4y56y4x" path="res://resources/mineral.gd" id="1_6ngx3"]
+[ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="2_0gm8o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gm8o"]
+atlas = ExtResource("2_0gm8o")
+region = Rect2(0, 48, 8, 8)
 
 [resource]
 script = ExtResource("1_6ngx3")
 name = "Wood"
+sprite = SubResource("AtlasTexture_0gm8o")
 tool = 1
 levels = Dictionary[int, int]({
 0: 2000,
@@ -12,4 +18,3 @@ levels = Dictionary[int, int]({
 2: 1160,
 3: 650
 })
-metadata/_custom_type_script = "uid://oqcwmc1rxljm"
