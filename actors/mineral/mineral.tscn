@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://d021k6haf2uem"]
+
+[ext_resource type="Script" uid="uid://b1f3sp72b2d6c" path="res://actors/mineral/mineral.gd" id="1_g3ols"]
+[ext_resource type="Script" uid="uid://bnus80heqvof" path="res://actors/mineral/components/mineable.gd" id="3_12xog"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12xog"]
+size = Vector2(8, 8)
+
+[node name="Mineral" type="StaticBody2D"]
+script = ExtResource("1_g3ols")
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(4, 4)
+
+[node name="MineralShape" type="CollisionShape2D" parent="."]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_12xog")
+
+[node name="Mineable" type="Node" parent="."]
+script = ExtResource("3_12xog")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="MineralShape" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_12xog")
+
+[connection signal="area_entered" from="Area2D" to="Mineable" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Mineable" method="_on_area_2d_area_exited"]

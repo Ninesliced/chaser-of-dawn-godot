@@ -132,3 +132,9 @@ script = ExtResource("3_ax26v")
 
 [node name="KeepInMapComponent" type="Node" parent="."]
 script = ExtResource("4_lsqbn")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(8, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
