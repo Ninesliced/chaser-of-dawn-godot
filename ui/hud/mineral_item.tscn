@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3k4kfc0yq65y"]
+
+[ext_resource type="Script" uid="uid://cyru7at6eev14" path="res://ui/hud/mineral_item.gd" id="1_f6jvb"]
+
+[node name="MineralItem" type="Node2D"]
+script = ExtResource("1_f6jvb")
+
+[node name="Mineral" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(4, 4)

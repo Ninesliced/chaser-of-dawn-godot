@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6bi14sypdbrf"]
+
+[ext_resource type="PackedScene" uid="uid://cojxcanv1a0nl" path="res://actors/player/player.tscn" id="1_jhgvx"]
+[ext_resource type="PackedScene" uid="uid://c7wbidglwt8w0" path="res://ui/hud/inventory_hud.tscn" id="2_5perg"]
+
+[node name="Arkan" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jhgvx")]
+
+[node name="InventoryHud" parent="." instance=ExtResource("2_5perg")]

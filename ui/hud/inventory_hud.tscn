@@ -1,0 +1,154 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7wbidglwt8w0"]
+
+[ext_resource type="Script" uid="uid://dkf5rkpcs5057" path="res://ui/hud/inventory_hud.gd" id="1_s1vrw"]
+[ext_resource type="PackedScene" uid="uid://b3k4kfc0yq65y" path="res://ui/hud/mineral_item.tscn" id="2_j6j7j"]
+[ext_resource type="FontFile" uid="uid://gkbi06tm4ewf" path="res://assets/fonts/pico-8-wide-upper.otf" id="2_yo0vi"]
+[ext_resource type="Resource" uid="uid://b3pmndtyvl5r8" path="res://resources/minerals/wood.tres" id="3_rb55y"]
+[ext_resource type="Resource" uid="uid://blygbguk6o0pr" path="res://resources/minerals/stone.tres" id="5_q4rb3"]
+[ext_resource type="Resource" uid="uid://b0g4je4g3v4xp" path="res://resources/minerals/copper.tres" id="6_heimi"]
+[ext_resource type="Resource" uid="uid://cwfb5gn60ktku" path="res://resources/minerals/coal.tres" id="7_haed1"]
+[ext_resource type="Resource" uid="uid://ce6jl6k1c68xd" path="res://resources/minerals/amethyst.tres" id="8_05t6x"]
+[ext_resource type="Shader" uid="uid://b02bw466pwk5a" path="res://addons/shaker/components/vfx/shaders/outline.gdshader" id="9_heimi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_haed1"]
+shader = ExtResource("9_heimi")
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[node name="InventoryHud" type="Node2D"]
+script = ExtResource("1_s1vrw")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 133.0
+offset_bottom = 127.0
+
+[node name="WoodLabel" type="Label" parent="Control2"]
+layout_mode = 2
+offset_left = 6.0
+offset_top = 17.0
+offset_right = 136.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("2_yo0vi")
+theme_override_font_sizes/font_size = 5
+text = "Wool"
+
+[node name="StoneLabel" type="Label" parent="Control2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 38.0
+offset_right = 136.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("2_yo0vi")
+theme_override_font_sizes/font_size = 5
+text = "Stone"
+
+[node name="CopperLabel" type="Label" parent="Control2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 56.0
+offset_right = 136.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("2_yo0vi")
+theme_override_font_sizes/font_size = 5
+text = "COPP"
+
+[node name="CoalLabel" type="Label" parent="Control2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 75.0
+offset_right = 136.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("2_yo0vi")
+theme_override_font_sizes/font_size = 5
+text = "COAL"
+
+[node name="AmethLabel" type="Label" parent="Control2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 94.0
+offset_right = 136.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("2_yo0vi")
+theme_override_font_sizes/font_size = 5
+text = "AMETH"
+
+[node name="Wood" parent="Control2" instance=ExtResource("2_j6j7j")]
+position = Vector2(8, 24)
+type = ExtResource("3_rb55y")
+
+[node name="Stone" parent="Control2" instance=ExtResource("2_j6j7j")]
+position = Vector2(8, 45)
+type = ExtResource("5_q4rb3")
+
+[node name="Copper" parent="Control2" instance=ExtResource("2_j6j7j")]
+position = Vector2(8, 64)
+type = ExtResource("6_heimi")
+
+[node name="Coal" parent="Control2" instance=ExtResource("2_j6j7j")]
+position = Vector2(8, 83)
+type = ExtResource("7_haed1")
+
+[node name="Ameth" parent="Control2" instance=ExtResource("2_j6j7j")]
+position = Vector2(8, 101)
+type = ExtResource("8_05t6x")
+
+[node name="WoodQuantity" type="Label" parent="Control2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_haed1")
+layout_mode = 0
+offset_left = 12.0
+offset_top = 27.0
+offset_right = 142.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("2_yo0vi")
+theme_override_font_sizes/font_size = 5
+text = "Wood_quantity"
+
+[node name="StoneQuantity" type="Label" parent="Control2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_haed1")
+layout_mode = 0
+offset_left = 12.0
+offset_top = 48.0
+offset_right = 142.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("2_yo0vi")
+theme_override_font_sizes/font_size = 5
+text = "Stone_quantity"
+
+[node name="CopperQuantity" type="Label" parent="Control2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_haed1")
+layout_mode = 0
+offset_left = 12.0
+offset_top = 66.0
+offset_right = 142.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("2_yo0vi")
+theme_override_font_sizes/font_size = 5
+text = "COPP_quantity"
+
+[node name="CoalQuantity" type="Label" parent="Control2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_haed1")
+layout_mode = 0
+offset_left = 12.0
+offset_top = 85.0
+offset_right = 142.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("2_yo0vi")
+theme_override_font_sizes/font_size = 5
+text = "COAL_quantity"
+
+[node name="AmethQuantity" type="Label" parent="Control2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_haed1")
+layout_mode = 0
+offset_left = 12.0
+offset_top = 104.0
+offset_right = 142.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("2_yo0vi")
+theme_override_font_sizes/font_size = 5
+text = "AMETH_quantity"
