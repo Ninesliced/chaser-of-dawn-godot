@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://vrqwct7o5t6u"
-path="res://.godot/imported/pico-8-mono-upper.otf-0a26a2db98c84bb28128d9c466a69d07.fontdata"
+uid="uid://gkbi06tm4ewf"
+path="res://.godot/imported/pico-8-wide-upper.otf-6a2b05cc0448fc85722aee948b3c9b9e.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/pico-8-mono-upper.otf"
-dest_files=["res://.godot/imported/pico-8-mono-upper.otf-0a26a2db98c84bb28128d9c466a69d07.fontdata"]
+source_file="res://assets/fonts/pico-8-wide-upper.otf"
+dest_files=["res://.godot/imported/pico-8-wide-upper.otf-6a2b05cc0448fc85722aee948b3c9b9e.fontdata"]
 
 [params]
 
