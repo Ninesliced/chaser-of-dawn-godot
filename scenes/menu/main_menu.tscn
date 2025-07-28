@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2cvu5i75764i"]
+[gd_scene load_steps=14 format=3 uid="uid://b2cvu5i75764i"]
 
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="1_3rkf3"]
 [ext_resource type="Script" uid="uid://djkv4goe2eu5k" path="res://scenes/menu/main_menu.gd" id="1_kiqgm"]
 [ext_resource type="PackedScene" uid="uid://brtbqbabw2bja" path="res://scenes/menu/play_button.tscn" id="2_3rkf3"]
 [ext_resource type="PackedScene" uid="uid://d0f7m3nj4ntxe" path="res://scenes/menu/info_button.tscn" id="3_247la"]
+[ext_resource type="Script" uid="uid://bip61cgsng847" path="res://scenes/menu/play_explain.gd" id="5_hj162"]
+[ext_resource type="PackedScene" uid="uid://c3aqq383c0le3" path="res://main.tscn" id="6_xn6kt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekxnf"]
 atlas = ExtResource("1_3rkf3")
@@ -26,6 +28,13 @@ region = Rect2(0, 73, 19, 7)
 texture = SubResource("AtlasTexture_l6cm7")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[sub_resource type="FontVariation" id="FontVariation_hj162"]
+spacing_top = -2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj162"]
+atlas = ExtResource("1_3rkf3")
+region = Rect2(80, 32, 16, 16)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -62,31 +71,37 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="KeyHelp" type="Label" parent="Main"]
 layout_mode = 2
-offset_left = 26.0
-offset_top = 120.0
-offset_right = 122.0
-offset_bottom = 125.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -8.0
+offset_right = -6.0
+offset_bottom = -3.0
 theme_override_colors/font_color = Color(0.372549, 0.341176, 0.309804, 1)
 theme_override_font_sizes/font_size = 5
 text = "ÃÔ navigate [c] select"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main"]
 layout_mode = 1
-anchors_preset = 13
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_right = 84.0
-offset_bottom = 46.0
+offset_left = -40.0
+offset_right = 40.0
+offset_bottom = 86.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/separation = 4
 
 [node name="MarginContainer2" type="MarginContainer" parent="Main/VBoxContainer"]
@@ -103,10 +118,11 @@ stretch_mode = 2
 layout_mode = 2
 theme_override_constants/margin_top = 4
 
-[node name="Play" parent="Main/VBoxContainer" instance=ExtResource("2_3rkf3")]
+[node name="Play" parent="Main/VBoxContainer" node_paths=PackedStringArray("next_node_ui") instance=ExtResource("2_3rkf3")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 7)
 layout_mode = 2
+next_node_ui = NodePath("../../../PlayExplain")
 
 [node name="InfoButton" parent="Main/VBoxContainer" instance=ExtResource("3_247la")]
 custom_minimum_size = Vector2(19, 7)
@@ -115,3 +131,148 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_247la")
 theme_override_styles/hover = SubResource("StyleBoxTexture_247la")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3rkf3")
 theme_override_styles/normal = SubResource("StyleBoxTexture_3rkf3")
+
+[node name="PlayExplain" type="Control" parent="."]
+process_priority = -1
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_hj162")
+scene_to_load = ExtResource("6_xn6kt")
+
+[node name="Move" type="Control" parent="PlayExplain"]
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 28.0
+offset_bottom = 21.0
+
+[node name="KeyHelp5" type="Label" parent="PlayExplain/Move"]
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 26.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 5
+text = "ËÃÑ"
+
+[node name="KeyHelp7" type="Label" parent="PlayExplain/Move"]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 26.0
+offset_bottom = 7.0
+theme_override_font_sizes/font_size = 5
+text = "Ô"
+horizontal_alignment = 1
+
+[node name="KeyHelp6" type="Label" parent="PlayExplain/Move"]
+offset_left = 6.0
+offset_top = 14.0
+offset_right = 22.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 5
+text = "move"
+
+[node name="Action" type="Control" parent="PlayExplain"]
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 28.0
+offset_bottom = 21.0
+
+[node name="KeyHelp5" type="Label" parent="PlayExplain/Action"]
+offset_left = 41.0
+offset_top = 5.0
+offset_right = 101.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 5
+text = "[C] mine/select"
+
+[node name="KeyHelp6" type="Label" parent="PlayExplain/Action"]
+offset_left = 41.0
+offset_top = 13.0
+offset_right = 101.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 5
+text = "[X] CRAFTING"
+
+[node name="Texts" type="Control" parent="PlayExplain"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="PlayExplain/Texts"]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 28.0
+offset_right = 125.0
+offset_bottom = 49.0
+theme_override_fonts/font = SubResource("FontVariation_hj162")
+theme_override_font_sizes/font_size = 5
+text = "Your spaceship just crashed.
+Repair your rocket and escape!
+"
+
+[node name="Text2" type="Label" parent="PlayExplain/Texts"]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 45.0
+offset_right = 125.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(1, 0, 0.301961, 1)
+theme_override_fonts/font = SubResource("FontVariation_hj162")
+theme_override_font_sizes/font_size = 5
+text = "But be careful, day and night
+will kill you."
+
+[node name="Text3" type="Label" parent="PlayExplain/Texts"]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 62.0
+offset_right = 125.0
+offset_bottom = 83.0
+theme_override_fonts/font = SubResource("FontVariation_hj162")
+theme_override_font_sizes/font_size = 5
+text = "Some items will turn into 
+others in the sunlight."
+
+[node name="Text4" type="Label" parent="PlayExplain/Texts"]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 80.0
+offset_right = 125.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0.760784, 0.764706, 0.780392, 1)
+theme_override_fonts/font = SubResource("FontVariation_hj162")
+theme_override_font_sizes/font_size = 5
+text = "[C] continue"
+
+[node name="Control" type="Control" parent="PlayExplain"]
+anchors_preset = 0
+offset_left = 44.0
+offset_top = 87.0
+offset_right = 84.0
+offset_bottom = 127.0
+
+[node name="ColorRect" type="ColorRect" parent="PlayExplain/Control"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 35.0
+offset_bottom = 37.0
+color = Color(1, 0.466667, 0.658824, 1)
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="PlayExplain/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_hj162")
+stretch_mode = 3
+metadata/_edit_lock_ = true
