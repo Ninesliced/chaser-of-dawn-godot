@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3aqq383c0le3"]
+[gd_scene load_steps=5 format=4 uid="uid://c3aqq383c0le3"]
 
 [ext_resource type="Script" uid="uid://boy78812wck4e" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dpc0j0pdfjd4f" path="res://scenes/guigui.tscn" id="2_0xm2m"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_h2yge"]
+scenes/1/scene = ExtResource("2_0xm2m")
+
+[sub_resource type="TileSet" id="TileSet_ig7tw"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetScenesCollectionSource_h2yge")
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_ig7tw")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAQACAAEAAAAAAAAAAQADAAEAAAAAAAAAAQADAAIAAAAAAAAAAQACAAIAAAAAAAAAAQABAAIAAAAAAAAAAQAAAAIAAAAAAAAAAQD//wEAAAAAAAAAAQAAAAEAAAAAAAAAAQAEAAEAAAAAAAAAAQAFAAEAAAAAAAAAAQADAAMAAAAAAAAAAQACAAMAAAAAAAAAAQABAAMAAAAAAAAAAQAEAAMAAAAAAAAAAQAFAAMAAAAAAAAAAQAGAAMAAAAAAAAAAQAGAAQAAAAAAAAAAQAFAAUAAAAAAAAAAQAEAAUAAAAAAAAAAQADAAQAAAAAAAAAAQACAAQAAAAAAAAAAQAEAAIAAAAAAAAAAQAFAAIAAAAAAAAAAQAGAAIAAAAAAAAAAQAHAAIAAAAAAAAAAQAHAAMAAAAAAAAAAQAEAAQAAAAAAAAAAQAFAAQAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_ig7tw")

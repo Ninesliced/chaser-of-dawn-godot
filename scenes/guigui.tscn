@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://dpc0j0pdfjd4f"]
+[gd_scene load_steps=2 format=3 uid="uid://dpc0j0pdfjd4f"]
+
+[ext_resource type="PackedScene" uid="uid://cojxcanv1a0nl" path="res://actors/player/player.tscn" id="1_gfv14"]
 
 [node name="Guigui" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_gfv14")]
+position = Vector2(-4, -4)
