@@ -1,7 +1,7 @@
 extends MainMenuButton
 
-@export var scene_to_load: PackedScene
+@export var next_node_ui: Control
 
 func _on_pressed() -> void:
-    get_tree().change_scene_to_packed(scene_to_load)
-
+	UIManager.set_ui(next_node_ui, next_node_ui, true)
+	next_node_ui.grab_focus()
