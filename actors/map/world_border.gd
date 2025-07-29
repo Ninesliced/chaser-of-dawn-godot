@@ -4,17 +4,24 @@ const tile_width := 8.
 
 signal border_touched
 
-@export var visible_border: Node2D
+var border_x := 0.
+
 @export var speed := 250.
+
+@onready var visible_borders := $VisibleBorders
+@onready var dither_mask := $VisibleBorders/DitherMaskTileMap
 
 
 func _process(delta: float) -> void:
-	visible_border.position.x += 1000. / speed * delta
+	border_x += 1000. / speed * delta
 	
-	if visible_border.position.x > tile_width:
-		visible_border.position.x -= tile_width
+	if border_x > tile_width:
+		border_x -= tile_width
 		position.x += tile_width
 
+	dither_mask.material.set("shader_parameter/mask_offset", position)
+
+	visible_borders.position.x = round(border_x)
 
 func _on_concrete_border_collisions_body_entered(body: Node2D) -> void:
 	if body is not Player:

@@ -13,9 +13,11 @@ tile_map_data = PackedByteArray("AAD4//j/AAABAAQAAAD5//j/AAABAAQAAAD6//j/AAABAAQ
 tile_set = ExtResource("1_bcckq")
 
 [node name="WorldBorder" parent="." instance=ExtResource("2_16yjv")]
+position = Vector2(48, 0)
+speed = 100.0
 
 [node name="Player" parent="." instance=ExtResource("3_1mwmh")]
-position = Vector2(31, 73)
+position = Vector2(110, 71)
 speed = 50.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
