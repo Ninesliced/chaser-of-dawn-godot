@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://rx0eona58o12"]
+
+[ext_resource type="Script" uid="uid://dmgx0qo1i3615" path="res://ui/crafting/resource_require_ui.gd" id="1_nymio"]
+[ext_resource type="Shader" uid="uid://3amj18kt3gv5" path="res://resources/shaders/remove_black.gdshader" id="2_iajdg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tim8j"]
+shader = ExtResource("2_iajdg")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w8jho"]
+load_path = "res://.godot/imported/arkanv1.png-a7230d62ec0ae78902fbcf90ad456973.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nymio"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_w8jho")
+region = Rect2(8, 48, 8, 8)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dha2e"]
+
+[node name="ResourceRequireUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 35.0
+offset_top = 1.00003
+offset_right = 35.0
+offset_bottom = 1.00003
+script = ExtResource("1_nymio")
+mineral = "coal"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_tim8j")
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+texture = SubResource("AtlasTexture_nymio")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_dha2e")
+layout_mode = 0
+offset_left = -4.0
+offset_top = 1.0
+offset_right = 11.0
+offset_bottom = 6.0
+theme_override_font_sizes/font_size = 5
+text = "0"

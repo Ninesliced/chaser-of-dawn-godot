@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://c54k8g5ahal0f"]
+[gd_scene load_steps=15 format=3 uid="uid://c54k8g5ahal0f"]
 
 [ext_resource type="Script" uid="uid://c7qloiubeu824" path="res://ui/crafting/crafting.gd" id="1_t6ubo"]
 [ext_resource type="Texture2D" uid="uid://cx0yg5abkkq5o" path="res://assets/spritesheet/rect.png" id="2_ldqm8"]
 [ext_resource type="Shader" uid="uid://3amj18kt3gv5" path="res://resources/shaders/remove_black.gdshader" id="3_fulqj"]
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="4_exnbe"]
 [ext_resource type="PackedScene" uid="uid://uyvdblta1iik" path="res://ui/crafting/upgrade_ui.tscn" id="5_gb6jt"]
+[ext_resource type="Resource" uid="uid://b3pmndtyvl5r8" path="res://resources/minerals/wood.tres" id="6_pqoro"]
+[ext_resource type="Resource" uid="uid://blygbguk6o0pr" path="res://resources/minerals/stone.tres" id="7_bnklx"]
+[ext_resource type="Resource" uid="uid://cwfb5gn60ktku" path="res://resources/minerals/coal.tres" id="8_oewx0"]
+[ext_resource type="Resource" uid="uid://b0g4je4g3v4xp" path="res://resources/minerals/copper.tres" id="9_tqpia"]
+[ext_resource type="Resource" uid="uid://ce6jl6k1c68xd" path="res://resources/minerals/amethyst.tres" id="10_f8p8d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gw3fx"]
 shader = ExtResource("3_fulqj")
@@ -13,8 +18,15 @@ shader = ExtResource("3_fulqj")
 atlas = ExtResource("4_exnbe")
 region = Rect2(16, 60, 39, 4)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyb5f"]
+atlas = ExtResource("4_exnbe")
+region = Rect2(40, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6jmf"]
+atlas = ExtResource("4_exnbe")
+region = Rect2(48, 48, 8, 8)
+
 [node name="CraftingUI" type="Control" node_paths=PackedStringArray("focus_node")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -109,28 +121,57 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_n1psn")
 stretch_mode = 2
 
-[node name="UpgradeShip" parent="." instance=ExtResource("5_gb6jt")]
+[node name="UpgradeShip" parent="." node_paths=PackedStringArray("ui_dict") instance=ExtResource("5_gb6jt")]
 unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.414063
 anchor_top = 0.921875
 anchor_right = 0.414063
 anchor_bottom = 0.921875
+ui_dict = {
+ExtResource("6_pqoro"): NodePath("wood"),
+ExtResource("7_bnklx"): NodePath("stone"),
+ExtResource("8_oewx0"): NodePath("coal"),
+ExtResource("9_tqpia"): NodePath("copper"),
+ExtResource("10_f8p8d"): NodePath("amethyst")
+}
 
-[node name="UpgradePickaxe" parent="." instance=ExtResource("5_gb6jt")]
+[node name="Current" parent="UpgradeShip/CraftingButton" index="0"]
+texture = SubResource("AtlasTexture_lyb5f")
+
+[node name="New" parent="UpgradeShip/CraftingButton2" index="0"]
+texture = SubResource("AtlasTexture_n6jmf")
+
+[node name="UpgradePickaxe" parent="." node_paths=PackedStringArray("ui_dict") instance=ExtResource("5_gb6jt")]
 layout_mode = 1
 anchor_left = 0.414063
 anchor_top = 1.09375
 anchor_right = 0.414063
 anchor_bottom = 1.09375
 current_tool = 1
+ui_dict = {
+ExtResource("6_pqoro"): NodePath("wood"),
+ExtResource("7_bnklx"): NodePath("stone"),
+ExtResource("8_oewx0"): NodePath("coal"),
+ExtResource("9_tqpia"): NodePath("copper"),
+ExtResource("10_f8p8d"): NodePath("amethyst")
+}
+hide_amethyst_coal = true
 
-[node name="UpgradeAxe" parent="." instance=ExtResource("5_gb6jt")]
+[node name="UpgradeAxe" parent="." node_paths=PackedStringArray("ui_dict") instance=ExtResource("5_gb6jt")]
 layout_mode = 1
 anchor_left = 0.414063
 anchor_top = 1.17969
 anchor_right = 0.414063
 anchor_bottom = 1.17969
 current_tool = 2
+ui_dict = {
+ExtResource("6_pqoro"): NodePath("wood"),
+ExtResource("7_bnklx"): NodePath("stone"),
+ExtResource("8_oewx0"): NodePath("coal"),
+ExtResource("9_tqpia"): NodePath("copper"),
+ExtResource("10_f8p8d"): NodePath("amethyst")
+}
+hide_amethyst_coal = true
 
 [editable path="UpgradeShip"]

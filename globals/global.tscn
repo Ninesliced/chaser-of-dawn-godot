@@ -1,15 +1,33 @@
-[gd_scene load_steps=19 format=3 uid="uid://cvg8gc8a373yp"]
+[gd_scene load_steps=41 format=3 uid="uid://cvg8gc8a373yp"]
 
 [ext_resource type="Script" uid="uid://b888wymn6phtl" path="res://globals/global.gd" id="1_mqaw6"]
 [ext_resource type="PackedScene" uid="uid://bow1mhc350fvm" path="res://scenes/game_over/game_over.tscn" id="2_ltp0y"]
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="2_lyb5f"]
 [ext_resource type="Script" uid="uid://bicj8flj0d734" path="res://resources/inventory.gd" id="2_n6jmf"]
+[ext_resource type="Script" uid="uid://bflsygncql1dv" path="res://resources/minerals.gd" id="3_njoy1"]
+[ext_resource type="Script" uid="uid://c7f2rs4y56y4x" path="res://resources/mineral.gd" id="5_ly8ta"]
+[ext_resource type="Script" uid="uid://dthv3xoyv3k8v" path="res://resources/item_upgrade/item_upgrade.gd" id="6_njoy1"]
+[ext_resource type="Resource" uid="uid://b3pmndtyvl5r8" path="res://resources/minerals/wood.tres" id="8_gopdk"]
+[ext_resource type="Resource" uid="uid://blygbguk6o0pr" path="res://resources/minerals/stone.tres" id="9_xgijr"]
+[ext_resource type="Resource" uid="uid://b0g4je4g3v4xp" path="res://resources/minerals/copper.tres" id="10_ppjj2"]
+[ext_resource type="Resource" uid="uid://cwfb5gn60ktku" path="res://resources/minerals/coal.tres" id="11_hccej"]
+[ext_resource type="Resource" uid="uid://ce6jl6k1c68xd" path="res://resources/minerals/amethyst.tres" id="12_hccej"]
+
+[sub_resource type="Resource" id="Resource_6sdu2"]
+script = ExtResource("3_njoy1")
+wood = 10
+coal = 10
+stone = 10
+copper = 10
+amethyst = 10
+metadata/_custom_type_script = "uid://bflsygncql1dv"
 
 [sub_resource type="Resource" id="Resource_ltp0y"]
 script = ExtResource("2_n6jmf")
 pickaxe = 0
 axe = 0
 ship = 0
+minerals = SubResource("Resource_6sdu2")
 metadata/_custom_type_script = "uid://bicj8flj0d734"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lyb5f"]
@@ -64,12 +82,142 @@ region = Rect2(56, 40, 8, 8)
 atlas = ExtResource("2_lyb5f")
 region = Rect2(64, 40, 8, 8)
 
+[sub_resource type="Resource" id="Resource_ly8ta"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_lyb5f")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({
+ExtResource("8_gopdk"): 10,
+ExtResource("9_xgijr"): 10,
+ExtResource("10_ppjj2"): 3,
+ExtResource("11_hccej"): 10
+})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
+[sub_resource type="Resource" id="Resource_njoy1"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_n6jmf")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({
+ExtResource("8_gopdk"): 20,
+ExtResource("9_xgijr"): 15,
+ExtResource("10_ppjj2"): 6,
+ExtResource("11_hccej"): 10,
+ExtResource("12_hccej"): 5
+})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
+[sub_resource type="Resource" id="Resource_gopdk"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_ltp0y")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({
+ExtResource("8_gopdk"): 30,
+ExtResource("9_xgijr"): 20,
+ExtResource("10_ppjj2"): 10,
+ExtResource("11_hccej"): 20,
+ExtResource("12_hccej"): 10
+})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
+[sub_resource type="Resource" id="Resource_xgijr"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_mqaw6")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({
+ExtResource("8_gopdk"): 40,
+ExtResource("9_xgijr"): 30,
+ExtResource("10_ppjj2"): 20,
+ExtResource("11_hccej"): 30,
+ExtResource("12_hccej"): 20
+})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
+[sub_resource type="Resource" id="Resource_2fr53"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_clrof")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
+[sub_resource type="Resource" id="Resource_bg40b"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_ly8ta")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({
+ExtResource("8_gopdk"): 8,
+ExtResource("9_xgijr"): 0,
+ExtResource("10_ppjj2"): 0
+})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
+[sub_resource type="Resource" id="Resource_o63pk"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_njoy1")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({
+ExtResource("8_gopdk"): 16,
+ExtResource("9_xgijr"): 7,
+ExtResource("10_ppjj2"): 0
+})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
+[sub_resource type="Resource" id="Resource_ptt0r"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_gopdk")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({
+ExtResource("8_gopdk"): 25,
+ExtResource("9_xgijr"): 10,
+ExtResource("10_ppjj2"): 5
+})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
+[sub_resource type="Resource" id="Resource_6pr4o"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_xgijr")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
+[sub_resource type="Resource" id="Resource_ppjj2"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_2fr53")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({
+ExtResource("8_gopdk"): 8,
+ExtResource("9_xgijr"): 0,
+ExtResource("10_ppjj2"): 0
+})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
+[sub_resource type="Resource" id="Resource_hccej"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_ppjj2")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({
+ExtResource("8_gopdk"): 9,
+ExtResource("9_xgijr"): 2,
+ExtResource("10_ppjj2"): 0
+})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
+[sub_resource type="Resource" id="Resource_cxryh"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_hccej")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({
+ExtResource("8_gopdk"): 15,
+ExtResource("9_xgijr"): 4,
+ExtResource("10_ppjj2"): 5
+})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
+[sub_resource type="Resource" id="Resource_72c3v"]
+script = ExtResource("6_njoy1")
+texture = SubResource("AtlasTexture_cxryh")
+cost = Dictionary[ExtResource("5_ly8ta"), int]({})
+metadata/_custom_type_script = "uid://dthv3xoyv3k8v"
+
 [node name="Global" type="Node"]
 script = ExtResource("1_mqaw6")
 game_over_scene = ExtResource("2_ltp0y")
 current_inventory = SubResource("Resource_ltp0y")
-items = Dictionary[int, Array]({
+item_sprites = Dictionary[int, Array]({
 0: [SubResource("AtlasTexture_lyb5f"), SubResource("AtlasTexture_n6jmf"), SubResource("AtlasTexture_ltp0y"), SubResource("AtlasTexture_mqaw6"), SubResource("AtlasTexture_clrof")],
 1: [SubResource("AtlasTexture_ly8ta"), SubResource("AtlasTexture_njoy1"), SubResource("AtlasTexture_gopdk"), SubResource("AtlasTexture_xgijr")],
 2: [SubResource("AtlasTexture_2fr53"), SubResource("AtlasTexture_ppjj2"), SubResource("AtlasTexture_hccej"), SubResource("AtlasTexture_cxryh")]
+})
+item_upgrades = Dictionary[int, Array]({
+0: Array[ExtResource("6_njoy1")]([SubResource("Resource_ly8ta"), SubResource("Resource_njoy1"), SubResource("Resource_gopdk"), SubResource("Resource_xgijr"), SubResource("Resource_2fr53")]),
+1: Array[ExtResource("6_njoy1")]([SubResource("Resource_bg40b"), SubResource("Resource_o63pk"), SubResource("Resource_ptt0r"), SubResource("Resource_6pr4o")]),
+2: Array[ExtResource("6_njoy1")]([SubResource("Resource_ppjj2"), SubResource("Resource_hccej"), SubResource("Resource_cxryh"), SubResource("Resource_72c3v")])
 })

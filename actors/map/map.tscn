@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://b0qnimip1kmf6"]
 
-[ext_resource type="Script" uid="uid://bgyls8bbamswl" path="res://actors/map/map.gd" id="1_mr3ab"]
+[ext_resource type="Script" path="res://actors/map/map.gd" id="1_mr3ab"]
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="1_omgja"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mr3ab"]

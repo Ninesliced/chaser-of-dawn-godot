@@ -1,7 +1,7 @@
 extends Resource
 
 class_name Minerals
-
+signal on_minerals_changed
 
 @export var wood: int
 @export var coal: int
@@ -10,6 +10,7 @@ class_name Minerals
 @export var amethyst: int
 
 func add(minerals: Minerals):
+	on_minerals_changed.emit()
 	wood += minerals.wood
 	coal += minerals.coal
 	stone += minerals.stone
@@ -17,6 +18,7 @@ func add(minerals: Minerals):
 	amethyst += minerals.amethyst
 
 func subtract(minerals: Minerals):
+	on_minerals_changed.emit()
 	wood -= minerals.wood
 	coal -= minerals.coal
 	stone -= minerals.stone
