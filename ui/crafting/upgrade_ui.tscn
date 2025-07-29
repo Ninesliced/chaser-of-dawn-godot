@@ -1,9 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://uyvdblta1iik"]
+[gd_scene load_steps=15 format=3 uid="uid://uyvdblta1iik"]
 
 [ext_resource type="Script" uid="uid://cn77ujo8bcd7m" path="res://ui/crafting/upgrade_ui.gd" id="1_68xul"]
+[ext_resource type="Resource" uid="uid://b3pmndtyvl5r8" path="res://resources/minerals/wood.tres" id="2_2dxsr"]
 [ext_resource type="Material" uid="uid://ckh7tquhip5ek" path="res://resources/materials/black_to_blue.tres" id="2_225pv"]
+[ext_resource type="Resource" uid="uid://blygbguk6o0pr" path="res://resources/minerals/stone.tres" id="3_bhfx6"]
 [ext_resource type="Texture2D" uid="uid://cx0yg5abkkq5o" path="res://assets/spritesheet/rect.png" id="3_quno0"]
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="4_g1kir"]
+[ext_resource type="Resource" uid="uid://cwfb5gn60ktku" path="res://resources/minerals/coal.tres" id="4_w48yq"]
+[ext_resource type="Resource" uid="uid://b0g4je4g3v4xp" path="res://resources/minerals/copper.tres" id="5_bhfx6"]
+[ext_resource type="PackedScene" uid="uid://rx0eona58o12" path="res://ui/crafting/resource_require_ui.tscn" id="5_tim8j"]
+[ext_resource type="Resource" uid="uid://ce6jl6k1c68xd" path="res://resources/minerals/amethyst.tres" id="6_w48yq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vvgi"]
 texture = ExtResource("3_quno0")
@@ -29,7 +35,7 @@ region = Rect2(40, 48, 8, 8)
 atlas = ExtResource("4_g1kir")
 region = Rect2(48, 48, 8, 8)
 
-[node name="UpgradeShip" type="Control"]
+[node name="UpgradeShip" type="Control" node_paths=PackedStringArray("ui_dict")]
 layout_mode = 3
 anchor_left = 0.210938
 anchor_top = 0.460938
@@ -41,6 +47,13 @@ offset_right = -27.0001
 offset_bottom = -59.0001
 script = ExtResource("1_68xul")
 current_tool = 0
+ui_dict = {
+ExtResource("2_2dxsr"): NodePath("wood"),
+ExtResource("3_bhfx6"): NodePath("stone"),
+ExtResource("4_w48yq"): NodePath("coal"),
+ExtResource("5_bhfx6"): NodePath("copper"),
+ExtResource("6_w48yq"): NodePath("amethyst")
+}
 metadata/_edit_use_anchors_ = true
 
 [node name="Arrow" type="Label" parent="."]
@@ -114,3 +127,36 @@ offset_bottom = 3.99994
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_n6jmf")
+
+[node name="wood" parent="." instance=ExtResource("5_tim8j")]
+unique_name_in_owner = true
+mineral = "wood"
+
+[node name="stone" parent="." instance=ExtResource("5_tim8j")]
+unique_name_in_owner = true
+offset_left = 52.0
+offset_right = 52.0
+mineral = "stone"
+
+[node name="copper" parent="." instance=ExtResource("5_tim8j")]
+unique_name_in_owner = true
+offset_left = 67.0
+offset_right = 67.0
+mineral = "copper"
+
+[node name="coal" parent="." instance=ExtResource("5_tim8j")]
+unique_name_in_owner = true
+offset_left = 43.0
+offset_top = 11.0
+offset_right = 43.0
+offset_bottom = 11.0
+
+[node name="amethyst" parent="." instance=ExtResource("5_tim8j")]
+unique_name_in_owner = true
+offset_left = 60.0
+offset_top = 12.0
+offset_right = 60.0
+offset_bottom = 12.0
+mineral = "amethyst"
+
+[connection signal="pressed" from="CraftingButton" to="." method="_on_crafting_button_pressed"]
