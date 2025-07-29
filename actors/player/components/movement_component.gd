@@ -23,6 +23,6 @@ func _physics_process(delta: float) -> void:
 	player.move_and_slide()
 
 
-func _on_die_component_on_die() -> void:
-	can_move = false
+func _on_die_component_on_die(_reason: String) -> void:
+	# can_move = false
 	pass # Replace with function body.
