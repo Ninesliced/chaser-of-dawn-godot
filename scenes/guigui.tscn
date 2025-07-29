@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cojxcanv1a0nl" path="res://actors/player/player.tscn" id="1_gfv14"]
 [ext_resource type="Script" uid="uid://c7qloiubeu824" path="res://ui/crafting/crafting.gd" id="2_fwjos"]
 [ext_resource type="Texture2D" uid="uid://cx0yg5abkkq5o" path="res://assets/spritesheet/rect.png" id="2_gfv14"]
-[ext_resource type="Shader" uid="uid://3amj18kt3gv5" path="res://resources/shaders/remove_black.gdshader" id="3_bff3v"]
+[ext_resource type="Shader" path="res://resources/shaders/remove_black.gdshader" id="3_bff3v"]
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="3_p1tfl"]
 [ext_resource type="PackedScene" uid="uid://uyvdblta1iik" path="res://ui/crafting/upgrade_ui.tscn" id="5_fwjos"]
 

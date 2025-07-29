@@ -9,12 +9,13 @@
 shader = ExtResource("3_nvn5g")
 shader_parameter/world_texture = ExtResource("3_tb3ke")
 shader_parameter/world_texture_size = Vector2(128, 128)
+shader_parameter/world_tile_size = Vector2(8, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tb3ke"]
-size = Vector2(32, 128)
+size = Vector2(208, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvfc2"]
-size = Vector2(32, 128)
+size = Vector2(176, 128)
 
 [node name="WorldBorder" type="Node2D" node_paths=PackedStringArray("visible_border")]
 script = ExtResource("1_pb4ya")
@@ -34,16 +35,15 @@ tile_map_data = PackedByteArray("AAAHAPj/AAAKAAkAAAAHAPn/AAAKAAkAAAAHAPr/AAAKAAk
 tile_set = ExtResource("1_mgio6")
 
 [node name="ConcreteBorderCollisions" type="Area2D" parent="."]
-visible = false
 collision_layer = 4
 collision_mask = 4
 
 [node name="DaylightCollisionShape" type="CollisionShape2D" parent="ConcreteBorderCollisions"]
-position = Vector2(-8, 64)
+position = Vector2(-96, 64)
 shape = SubResource("RectangleShape2D_tb3ke")
 
 [node name="NighttimeCollisionShape" type="CollisionShape2D" parent="ConcreteBorderCollisions"]
-position = Vector2(136, 64)
+position = Vector2(208, 64)
 shape = SubResource("RectangleShape2D_cvfc2")
 
 [connection signal="body_entered" from="ConcreteBorderCollisions" to="." method="_on_concrete_border_collisions_body_entered"]
