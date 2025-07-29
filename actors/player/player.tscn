@@ -229,6 +229,12 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("RectangleShape2D_ufug3")
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(8, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
 [connection signal="on_vector" from="MovementComponent" to="AnimationComponent" method="_on_movement_component_on_vector"]
 [connection signal="on_die_animation_finished" from="AnimationComponent" to="." method="_on_animation_component_on_die_animation_finished"]
 [connection signal="on_die" from="DieComponent" to="MovementComponent" method="_on_die_component_on_die"]

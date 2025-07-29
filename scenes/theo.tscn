@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://t118663r8xm3"]
+[gd_scene load_steps=5 format=3 uid="uid://t118663r8xm3"]
 
 [ext_resource type="PackedScene" uid="uid://ergkkduqtopb" path="res://scenes/map.tscn" id="1_7i5u7"]
 [ext_resource type="PackedScene" uid="uid://cojxcanv1a0nl" path="res://actors/player/player.tscn" id="2_e8te2"]
+[ext_resource type="PackedScene" uid="uid://d021k6haf2uem" path="res://actors/mineral/mineral.tscn" id="3_8c0u5"]
+[ext_resource type="Resource" uid="uid://b3pmndtyvl5r8" path="res://resources/minerals/wood.tres" id="4_5xjal"]
 
 [node name="Theo" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource("1_7i5u7")]
+position = Vector2(1, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_e8te2")]
 position = Vector2(4, 4)
+speed = 200.0
+
+[node name="Mineral" parent="." instance=ExtResource("3_8c0u5")]
+position = Vector2(41, 32)
+data = ExtResource("4_5xjal")

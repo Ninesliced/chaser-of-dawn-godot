@@ -18,3 +18,4 @@ levels = Dictionary[int, int]({
 2: 2600,
 3: 2300
 })
+metadata/_custom_type_script = "uid://oqcwmc1rxljm"
