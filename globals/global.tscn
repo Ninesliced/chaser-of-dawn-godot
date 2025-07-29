@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cvg8gc8a373yp"]
+[gd_scene load_steps=19 format=3 uid="uid://cvg8gc8a373yp"]
 
 [ext_resource type="Script" uid="uid://b888wymn6phtl" path="res://globals/global.gd" id="1_mqaw6"]
+[ext_resource type="PackedScene" uid="uid://bow1mhc350fvm" path="res://scenes/game_over/game_over.tscn" id="2_ltp0y"]
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="2_lyb5f"]
 [ext_resource type="Script" uid="uid://bicj8flj0d734" path="res://resources/inventory.gd" id="2_n6jmf"]
 
@@ -65,6 +66,7 @@ region = Rect2(64, 40, 8, 8)
 
 [node name="Global" type="Node"]
 script = ExtResource("1_mqaw6")
+game_over_scene = ExtResource("2_ltp0y")
 current_inventory = SubResource("Resource_ltp0y")
 items = Dictionary[int, Array]({
 0: [SubResource("AtlasTexture_lyb5f"), SubResource("AtlasTexture_n6jmf"), SubResource("AtlasTexture_ltp0y"), SubResource("AtlasTexture_mqaw6"), SubResource("AtlasTexture_clrof")],

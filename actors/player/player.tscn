@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cojxcanv1a0nl"]
+[gd_scene load_steps=31 format=3 uid="uid://cojxcanv1a0nl"]
 
 [ext_resource type="Script" uid="uid://c5h82gwvgfxbb" path="res://actors/player/player.gd" id="1_ilk7j"]
 [ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="1_nvxhs"]
 [ext_resource type="Script" uid="uid://btjdcrja4ylpl" path="res://actors/player/components/movement_component.gd" id="3_ax26v"]
-[ext_resource type="Script" path="res://actors/player/components/keep_in_map_component.gd" id="4_lsqbn"]
+[ext_resource type="Script" uid="uid://c617wnfbhuqsq" path="res://actors/player/components/keep_in_map_component.gd" id="4_lsqbn"]
+[ext_resource type="Script" uid="uid://ctts0l3njhwfp" path="res://actors/player/components/animation_component.gd" id="5_6p1w3"]
+[ext_resource type="Script" uid="uid://ctwsrtmrx5cyv" path="res://actors/player/die_component.gd" id="6_15y17"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufug3"]
 size = Vector2(8, 8)
@@ -22,6 +24,26 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lsqbn"]
 shader = SubResource("Shader_ax26v")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p1w3"]
+atlas = ExtResource("1_nvxhs")
+region = Rect2(88, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15y17"]
+atlas = ExtResource("1_nvxhs")
+region = Rect2(96, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bop6h"]
+atlas = ExtResource("1_nvxhs")
+region = Rect2(104, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a744p"]
+atlas = ExtResource("1_nvxhs")
+region = Rect2(112, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_388e2"]
+atlas = ExtResource("1_nvxhs")
+region = Rect2(120, 8, 8, 8)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fk7tf"]
 atlas = ExtResource("1_nvxhs")
 region = Rect2(32, 0, 8, 8)
@@ -33,6 +55,26 @@ region = Rect2(40, 0, 8, 8)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fwjos"]
 atlas = ExtResource("1_nvxhs")
 region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsln6"]
+atlas = ExtResource("1_nvxhs")
+region = Rect2(88, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiosj"]
+atlas = ExtResource("1_nvxhs")
+region = Rect2(96, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssdk0"]
+atlas = ExtResource("1_nvxhs")
+region = Rect2(104, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aotg"]
+atlas = ExtResource("1_nvxhs")
+region = Rect2(112, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k67x5"]
+atlas = ExtResource("1_nvxhs")
+region = Rect2(120, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ii521"]
 atlas = ExtResource("1_nvxhs")
@@ -66,6 +108,26 @@ region = Rect2(24, 0, 8, 8)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_6p1w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15y17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bop6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a744p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_388e2")
+}],
+"loop": false,
+"name": &"cold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fk7tf")
 }, {
 "duration": 1.0,
@@ -76,6 +138,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsln6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiosj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssdk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aotg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k67x5")
+}],
+"loop": false,
+"name": &"hot",
 "speed": 5.0
 }, {
 "frames": [{
@@ -125,10 +207,30 @@ shape = SubResource("RectangleShape2D_ufug3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_lsqbn")
 sprite_frames = SubResource("SpriteFrames_ufug3")
-animation = &"right"
+animation = &"down"
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("3_ax26v")
 
 [node name="KeepInMapComponent" type="Node" parent="."]
 script = ExtResource("4_lsqbn")
+
+[node name="AnimationComponent" type="Node" parent="." node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("5_6p1w3")
+animated_sprite = NodePath("../AnimatedSprite2D")
+
+[node name="DieComponent" type="Node" parent="."]
+script = ExtResource("6_15y17")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_ufug3")
+
+[connection signal="on_vector" from="MovementComponent" to="AnimationComponent" method="_on_movement_component_on_vector"]
+[connection signal="on_die_animation_finished" from="AnimationComponent" to="." method="_on_animation_component_on_die_animation_finished"]
+[connection signal="on_die" from="DieComponent" to="MovementComponent" method="_on_die_component_on_die"]
+[connection signal="on_die" from="DieComponent" to="AnimationComponent" method="_on_die_component_on_die"]
+[connection signal="area_entered" from="HitboxComponent" to="DieComponent" method="_on_hitbox_component_area_entered"]

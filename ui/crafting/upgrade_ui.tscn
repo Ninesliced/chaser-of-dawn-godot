@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://uyvdblta1iik"]
+[gd_scene load_steps=9 format=3 uid="uid://uyvdblta1iik"]
 
 [ext_resource type="Script" uid="uid://cn77ujo8bcd7m" path="res://ui/crafting/upgrade_ui.gd" id="1_68xul"]
 [ext_resource type="Material" uid="uid://ckh7tquhip5ek" path="res://resources/materials/black_to_blue.tres" id="2_225pv"]
@@ -21,9 +21,13 @@ texture_margin_right = 1.0
 texture_margin_bottom = 1.0
 modulate_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t7646"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyb5f"]
 atlas = ExtResource("4_g1kir")
 region = Rect2(40, 48, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6jmf"]
+atlas = ExtResource("4_g1kir")
+region = Rect2(48, 48, 8, 8)
 
 [node name="UpgradeShip" type="Control"]
 layout_mode = 3
@@ -77,7 +81,7 @@ offset_right = 4.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_t7646")
+texture = SubResource("AtlasTexture_lyb5f")
 
 [node name="CraftingButton2" type="NinePatchRect" parent="."]
 self_modulate = Color(0, 0, 0, 1)
@@ -109,4 +113,4 @@ offset_right = 3.99994
 offset_bottom = 3.99994
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("AtlasTexture_t7646")
+texture = SubResource("AtlasTexture_n6jmf")

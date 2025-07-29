@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=4 uid="uid://ergkkduqtopb"]
+[gd_scene load_steps=11 format=4 uid="uid://ergkkduqtopb"]
 
 [ext_resource type="TileSet" uid="uid://digyqa57r21tu" path="res://resources/spritesheet.tres" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://66vif0kl8pba" path="res://actors/map/world_border.tscn" id="1_paxxb"]
+[ext_resource type="PackedScene" uid="uid://cojxcanv1a0nl" path="res://actors/player/player.tscn" id="3_gldc4"]
+[ext_resource type="Script" uid="uid://c7qloiubeu824" path="res://ui/crafting/crafting.gd" id="4_jh32y"]
+[ext_resource type="Texture2D" uid="uid://cx0yg5abkkq5o" path="res://assets/spritesheet/rect.png" id="5_be0no"]
+[ext_resource type="Shader" uid="uid://3amj18kt3gv5" path="res://resources/shaders/remove_black.gdshader" id="6_blm8a"]
+[ext_resource type="Texture2D" uid="uid://btwu33ieg64x2" path="res://assets/spritesheet/arkanv1.png" id="7_mlgqr"]
+[ext_resource type="PackedScene" uid="uid://uyvdblta1iik" path="res://ui/crafting/upgrade_ui.tscn" id="8_wslke"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gw3fx"]
+shader = ExtResource("6_blm8a")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1psn"]
+atlas = ExtResource("7_mlgqr")
+region = Rect2(16, 60, 39, 4)
 
 [node name="Map" type="Node2D"]
 
@@ -11,3 +24,133 @@ tile_map_data = PackedByteArray("AAD4//j/AAABAAQAAAD5//j/AAABAAQAAAD6//j/AAABAAQ
 tile_set = ExtResource("1_4xfga")
 
 [node name="WorldBorder" parent="." instance=ExtResource("1_paxxb")]
+
+[node name="Player" parent="." instance=ExtResource("3_gldc4")]
+position = Vector2(31, 73)
+speed = 50.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_top = 0
+limit_bottom = 0
+drag_top_margin = 1.0
+drag_bottom_margin = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CraftingUI" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_jh32y")
+
+[node name="TextureRect" type="ColorRect" parent="CanvasLayer/CraftingUI"]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.760784, 0.764706, 0.780392, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/CraftingUI"]
+modulate = Color(0.113725, 0.168627, 0.32549, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.203
+anchor_top = 0.203
+anchor_right = 0.797
+anchor_bottom = 0.797
+offset_left = -1.984
+offset_top = -1.984
+offset_right = 1.98399
+offset_bottom = 1.98399
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_be0no")
+region_rect = Rect2(0, 0, 3, 3)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="Crafting" type="Control" parent="CanvasLayer/CraftingUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/CraftingUI/Crafting"]
+modulate = Color(0.113725, 0.168627, 0.32549, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.203
+anchor_top = 0.203
+anchor_right = 0.797
+anchor_bottom = 0.797
+offset_left = -22.0
+offset_top = -26.0
+offset_right = 21.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_be0no")
+region_rect = Rect2(0, 0, 3, 3)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/CraftingUI/Crafting"]
+material = SubResource("ShaderMaterial_gw3fx")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.203
+anchor_right = 0.5
+anchor_bottom = 0.203
+offset_left = -20.0
+offset_top = -24.0
+offset_right = 20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_n1psn")
+stretch_mode = 2
+
+[node name="UpgradeShip" parent="CanvasLayer/CraftingUI" instance=ExtResource("8_wslke")]
+layout_mode = 1
+anchor_left = 0.414063
+anchor_top = 0.921875
+anchor_right = 0.414063
+anchor_bottom = 0.921875
+
+[node name="UpgradeShip2" parent="CanvasLayer/CraftingUI" instance=ExtResource("8_wslke")]
+layout_mode = 1
+anchor_left = 0.414063
+anchor_top = 1.09375
+anchor_right = 0.414063
+anchor_bottom = 1.09375
+current_tool = 1
+
+[node name="UpgradeShip3" parent="CanvasLayer/CraftingUI" instance=ExtResource("8_wslke")]
+layout_mode = 1
+anchor_left = 0.414063
+anchor_top = 1.17969
+anchor_right = 0.414063
+anchor_bottom = 1.17969
+current_tool = 2

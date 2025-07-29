@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://brtbqbabw2bja" path="res://scenes/menu/play_button.tscn" id="2_3rkf3"]
 [ext_resource type="PackedScene" uid="uid://d0f7m3nj4ntxe" path="res://scenes/menu/info_button.tscn" id="3_247la"]
 [ext_resource type="Script" uid="uid://bip61cgsng847" path="res://scenes/menu/play_explain.gd" id="5_hj162"]
-[ext_resource type="PackedScene" uid="uid://c3aqq383c0le3" path="res://main.tscn" id="6_xn6kt"]
+[ext_resource type="PackedScene" uid="uid://ergkkduqtopb" path="res://scenes/map.tscn" id="6_xn6kt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ekxnf"]
 atlas = ExtResource("1_3rkf3")

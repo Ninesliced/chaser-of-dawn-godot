@@ -3,7 +3,7 @@ extends Node
 
 @export var first_unclosable : bool = false
 
-var _stack : Array[Node] = []
+var _stack : Array = []
 var _focus_stack : Array = []
 var _current_ui : Node = null
 
