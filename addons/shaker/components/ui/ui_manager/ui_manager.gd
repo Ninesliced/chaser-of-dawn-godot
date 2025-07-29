@@ -3,7 +3,7 @@ extends Node
 
 @export var first_unclosable : bool = false
 
-var _stack : Array = []
+var _stack : Array[Node] = []
 var _focus_stack : Array = []
 var _current_ui : Node = null
 
@@ -53,8 +53,14 @@ func close_ui() -> void:
 	if _stack.size() > 1:
 		_stack.pop_back()
 		_focus_stack.pop_back()
+		if _stack.back() == null or !is_instance_valid(_stack.back()):
+			print("UIManager: Closing UI, but no valid UI left in stack.")
+			_stack.clear()
+			_focus_stack.clear()
+			return
 		_current_ui = _stack.back()
 		_current_ui.show()
+		print(_current_ui.name, " is now the current UI")
 
 		var current_focus = _focus_stack.back()
 		current_focus.grab_focus()
