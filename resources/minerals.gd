@@ -2,6 +2,7 @@ extends Resource
 
 class_name Minerals
 
+
 @export var wood: int
 @export var coal: int
 @export var stone: int

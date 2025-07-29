@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6bi14sypdbrf"]
+[gd_scene load_steps=5 format=3 uid="uid://c6bi14sypdbrf"]
 
 [ext_resource type="PackedScene" uid="uid://cojxcanv1a0nl" path="res://actors/player/player.tscn" id="1_jhgvx"]
 [ext_resource type="PackedScene" uid="uid://c7wbidglwt8w0" path="res://ui/hud/inventory_hud.tscn" id="2_5perg"]
+[ext_resource type="PackedScene" uid="uid://b0qnimip1kmf6" path="res://actors/map/map.tscn" id="3_8o45r"]
+[ext_resource type="PackedScene" uid="uid://66vif0kl8pba" path="res://actors/map/world_border.tscn" id="4_d307w"]
 
 [node name="Arkan" type="Node2D"]
 
+[node name="Map" parent="." instance=ExtResource("3_8o45r")]
+MAP_SIZE_X = null
+MAP_SIZE_Y = null
+
+[node name="WorldBorder" parent="." instance=ExtResource("4_d307w")]
+
 [node name="Player" parent="." instance=ExtResource("1_jhgvx")]
+position = Vector2(27, 28)
 
 [node name="InventoryHud" parent="." instance=ExtResource("2_5perg")]
